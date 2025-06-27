@@ -12,7 +12,7 @@ uploaded = st.sidebar.file_uploader("Upload an image", type=["png", "jpg", "jpeg
 if uploaded:
     image = Image.open(uploaded).convert("L")  # convert to grayscale
     img_np = np.array(image)
-    st.sidebar.image(image, caption="Uploaded Image", use_container_width=True)
+    st.sidebar.image(image, caption="Uploaded Image", use_column_width=True)
 else:
     st.warning("Upload an image to get started.")
     st.stop()
@@ -43,9 +43,9 @@ def download_button(image_array, filename):
 def show_comparison(original, transformed, labels=("Original", "Transformed")):
     col1, col2 = st.columns(2)
     with col1:
-        st.image(original, caption=labels[0], use_container_width=True)
+        st.image(original, caption=labels[0], use_column_width=True)
     with col2:
-        st.image(transformed, caption=labels[1], use_container_width=True)
+        st.image(transformed, caption=labels[1], use_column_width=True)
 
 # --- Halftoning ---
 if tool == "Halftoning":
